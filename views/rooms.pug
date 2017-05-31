@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    h1 hello from rooms.pug
+    a.btn.btn-primary(href="/admin/rooms/add") Créer une nouvelle chat Room
+    table.table.table-striped
+            thead
+                tr
+                    th(colspan="2") Actions
+                    th Name
+                    th Id
+            tbody
+                each room in rooms
+                    tr
+                        td(style="width: 50px;"): a(href="/admin/rooms/delete/" + room.id)
+                           span.glyphicon.glyphicon-remove
+                        td(style="width: 50px;"): a(href="/admin/rooms/edit/" + room.id)
+                           span.glyphicon.glyphicon-pencil
+                        td= room.name
+                        td= room.id
